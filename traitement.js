@@ -8,11 +8,11 @@ document.getElementById('destEmail').value=destEmail;
 document.getElementById('destSMS').value=destSMS;
 
 function refreshGPS(){
-if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(success, error, options);
-} else {
-  window.alert('Votre navigateur ne supporte pas la géolocalisation');
-}
+	if ('geolocation' in navigator) {
+		navigator.geolocation.getCurrentPosition(success, error, options);
+	} else {
+	  window.alert('Votre navigateur ne supporte pas la géolocalisation');
+	}
 }
 
 var options = {
@@ -85,5 +85,5 @@ function sms(){
 }
 
 function facebook(){//pas encore mise en oeuvre
-	console.log("envoi d'une alerte Facebook: pas encore mis en oeuvre");
+	console.log("Envoi d'une alerte Facebook: pas encore mis en oeuvre");
 }

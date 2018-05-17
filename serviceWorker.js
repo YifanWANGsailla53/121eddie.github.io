@@ -3,6 +3,7 @@ self.addEventListener('install', event => {//lors du chargement de index.html
   console.log("ServiceWorker en cours d'installation…");
 });
 
+//si le cache est ancien, il faut essayer de la rafraîchir
 self.addEventListener('activate', event => {
 	//chargement anticipé des pages puisqu'on vise un fonctionnement offline
 	//application experimentale, on ne gère pas les versions de cache
