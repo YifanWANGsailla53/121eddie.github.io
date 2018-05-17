@@ -40,7 +40,7 @@ function success(pos) {
 	var d=new Date();
 	//29 avr 2018 19h37:05
 	var secDouble=(d.getSeconds()<10?'0':'')+d.getSeconds();
-	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+secDouble+', le'+d.getDay()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+secDouble+' '+d.getDay()+' '+mois[d.getMonth()]+' '+d.getFullYear();
 	console.log('miseAjour:'+miseAjour);
 	document.getElementById("latitude").innerHTML=latitude;
 	document.getElementById("longitude").innerHTML=longitude;
@@ -86,11 +86,28 @@ function sms(){
 		destSMS=document.getElementById('destSMS').value;
 		localStorage.setItem('destSMS',destSMS);
 	}
+	var d=new Date();
+	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+d.getSeconds();
+	document.getElementById("latitude").innerHTML=latitude;
+	document.getElementById("longitude").innerHTML=longitude;
+	document.getElementById("precision").innerHTML=precision;
+	document.getElementById("miseAjour").innerHTML=miseAjour;
+	console.log("Coordonnées mises à jour");
+	//mise à jour des variables globales
+	message="Mes coordonnées mesurées par l'appli Web Progressive\r\nLatitude: "+latitude+'\r\nLongitude: '+longitude+'\r\nPrécision: '+precision+'\r\nDernière mise à jour: '+miseAjour;
+	console.info(message);
 	var ecMessage=encodeURIComponent(message);
-	console.log(ecMessage);
-	var sms='sms:'+destSMS+'?body='+ecMessage;//& pour iOS
-	console.log(sms);
-	//var sms='sms:0649624189?body=message';//& pour iOS
-	window.location.href=sms;
+	console.info(ecMessage);
+	var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android
+        var isiOS = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
 	console.log("SMS ouvert dans l'application SMS");
-}
+	if(isiOS){
+		console.log('ios');
+       		window.location.href="sms://"+destSMS+"&body="+ecMessage;
+	}
+	else{
+       		window.location.href.href="sms://"+destSMS+"?body="+ecMessage;
+	}
+
+    	}
