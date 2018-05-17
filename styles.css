@@ -1,16 +1,38 @@
 body {
-    background-color: lightgrey;
+    background-color: lightyellow;
 	margin-left: 10px;
-	font-size:10px;
+	font-size:15px;
 }
 
 h1 {
     color: red;
     margin-left: 30px;
-	font-size:40px;
+	font-size:25px;
 }
 h2 {
-    color: red;
+    color: green;
     margin-left: 10px;
-	font-size:25px;
+	font-size:15px;
+}
+sinfo {
+	color: blue;
+	font-size:20px;
+}
+
+sco1{
+	color:red;
+	font-size:20px;
+}
+
+sco2{
+	font-size:15px;
+}
+
+table,th,td{
+	border-style:solid;
+	/* border-width:1px; */
+}
+
+button{
+	font-variant:bold;
 }
