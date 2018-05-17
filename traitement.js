@@ -83,9 +83,9 @@ function sms(){
 	}
 	var ecMessage=encodeURIComponent(message);
 	console.log(ecMessage);
-	var sms='sms://'+destSMS+'?body='+ecMessage;//& pour iOS
+	var sms='sms:'+destSMS+'?body='+ecMessage;//& pour iOS
 	console.log(sms);
-	//var sms='sms://0649624189?body=message';//& pour iOS
+	//var sms='sms:0649624189?body=message';//& pour iOS
 	window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
 }
