@@ -4,6 +4,9 @@ var destSMS=localStorage.getItem('destSMS');
 var latitude,longitude,precision,miseAjour;//variables globales pour ne pas avoir à les récupèrer à chaque fois dans la DOM
 var sujet;
 var message;
+var connection=(window.navigator.onLine?'online':'offline');
+console.log('connection:'+connection);
+document.getElementById('connection').innerHTML=connection;
 document.getElementById('destEmail').value=destEmail;
 document.getElementById('destSMS').value=destSMS;
 
@@ -22,6 +25,10 @@ var options = {
 };
 
 function success(pos) {
+	//mise à jour de l'état de connection
+	connection=(window.navigator.onLine?'online':'offline');
+	console.log('connection:'+connection);
+	document.getElementById('connection').innerHTML=connection;
 	//mise à jour des coordonnées
 	var coord = pos.coords;
 	latitude=coord.latitude.toPrecision(6);
