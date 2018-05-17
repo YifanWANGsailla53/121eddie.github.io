@@ -74,7 +74,8 @@ function sms(){
 		destSMS=document.getElementById('destSMS').value;
 		localStorage.setItem('destSMS',destSMS);
 	}
-	navigator.mozSms.send(destSMS, message());
+	MozMobileMessageManager.send(destSMS, message)
+	// navigator.mozSms.send(destSMS, message());
 	console.log("SMS ouvert dans l'application SMS");
 }
 
