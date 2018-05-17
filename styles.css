@@ -16,7 +16,7 @@ h2 {
 }
 sinfo {
 	color: blue;
-	font-size:20px;
+	font-size:15px;
 }
 
 sco1{
@@ -53,11 +53,18 @@ th,td{
 	margin-right:6px;
 	margin-top:4px;
 	margin-bottom:4px;
-	width:120;
+	/* width:120; */
 	text-align:center;
 }
 button{
 	font-variant:bold;
 	font-size:15px;
 	font-weight:bold;
+	height:80px;
+	width:130px;
+}
+input{
+	font-size:20px;
+	height:80px;
+	width:400px;
 }
