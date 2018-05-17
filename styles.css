@@ -58,13 +58,13 @@ th,td{
 }
 button{
 	font-variant:bold;
-	font-size:15px;
+	font-size:23px;
 	font-weight:bold;
-	height:80px;
-	width:130px;
+	height:100px;
+	width:200px;
 }
 input{
-	font-size:20px;
-	height:80px;
-	width:400px;
+	font-size:15px;
+	height:70px;
+	width:300px;
 }
