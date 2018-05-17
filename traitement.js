@@ -74,9 +74,12 @@ function sms(){
 		destSMS=document.getElementById('destSMS').value;
 		localStorage.setItem('destSMS',destSMS);
 	}
-	sendSMS(destSMS, message)
-	// MozMobileMessageManager.send(destSMS, message)
-	// navigator.mozSms.send(destSMS, message());
+	//envoi par un site tiers
+	// MozMobileMessageManager.send(destSMS, message);
+	
+	//envoi par l'application SMS par défaut
+	var sms='sms:'+destSMS+'&body='+message;//pas de sujet pour les SMS...
+	window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
 }
 
