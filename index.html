@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+	<meta charset="utf-8">
+	<Title>Geolocalisation offline</Title>
+</HEAD>
+<!--enregistrer le worker si c'est pas deja fait-->
+<script type="text/javascript">
+-->
+	<!-- } -->
+	if ( 'serviceWorker' in navigator ) {
+		navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
+		// Registration was successful
+			console.log('ServiceWorker registration successful with scope: ', registration.scope);
+		}).catch(function(err) {
+		// registration failed :(
+		console.log('ServiceWorker registration failed: ', err);
+		});
+	}
+</script>
+<!--importer les formats CSS-->
+<link rel="styles.css" type="text/css" href="styles.css">
+<BODY>
+Solution de Geolocalisation<br>
+Chargée en mode <i id='connection'>offline</i><br>
+Worker <i id='worker'>non activé</i><br><br>
+<!--afficher la position GPS-->
+Ma Position GPS
+<table id='tablePosition'>
+	<tr>
+		<th>Latitude</th>
+		<th>Longitude</th>
+		<th>Précision</th>
+		<th>Dernière mise à jour</th>
+		  <!-- <p id="para">Some text here</p> -->
+		<th><button onclick="refreshGPS();">Mettre à jour</button></th>
+	</tr>
+	<tr>
+		<td id='latitude'></td>
+		<td id='longitude'></td>
+		<td id='precision'></td>
+		<td id='miseAjour'></td>
+		<td></td>
+	</tr>
+</table><br>
+<!-- <a href="data:application/octet-stream;charset=utf-16le;base64,//5mAG8AbwAgAGIAYQByAAoA">text file</a> -->
+Telecharger mes coordonnees sous forme de fichier texte<br>
+<a id='telecharger'>Télécharger</a><br><br>
+<!--boutons pour partager la co2nnection avec sms et email-->
+Partager ma position
+<table>
+	<tr>
+		<th>Destinataire</th>
+		<th>Envoyer un...<th>
+	</tr>
+	<tr>
+		<td><input id='destEmail' type='text' maxlength=30></td>
+		<!-- <td id='destEmail'>moi&#64yahoo.com </td> -->
+		<td><button onclick="email();">Email</td>
+	</tr>
+	<tr>
+		<td><input id='destSMS' type='number' maxlength=13></td>
+		<td><button onclick="sms();">SMS</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><button onclick="facebook();">Facebook</td>
+	</tr>
+</table>
+</BODY>
+</HTML>
+<!--concentre toutes les fonctions de traitement-->
+<script src="./traitement.js" type="text/javascript"></script>
