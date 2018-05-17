@@ -78,7 +78,8 @@ function sms(){
 	// MozMobileMessageManager.send(destSMS, message);
 	
 	//envoi par l'application SMS par défaut
-	var sms='sms:'+destSMS+'?body='+'test';//pas de sujet pour les SMS...//& pour iOS
+	var ecMessage=encodeURIComponent(message);
+	var sms='sms:'+destSMS+'&body='+ecmessage;//pas de sujet pour les SMS...//& pour iOS
 	window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
 }
