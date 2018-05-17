@@ -40,7 +40,7 @@ function success(pos) {
 	var d=new Date();
 	//29 avr 2018 19h37:05
 	var secDouble=(d.getSeconds()<10?'0':'')+d.getSeconds();
-	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+secDouble+' '+d.getDay()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+secDouble+', le'+d.getDay()+' '+mois[d.getMonth()]+' '+d.getFullYear();
 	console.log('miseAjour:'+miseAjour);
 	document.getElementById("latitude").innerHTML=latitude;
 	document.getElementById("longitude").innerHTML=longitude;
