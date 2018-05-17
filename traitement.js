@@ -1,4 +1,5 @@
 refreshGPS();
+var mois=['jan','fev','mar','avr','mai','jui','jul','aug','sep','oct','nov','dec'];
 var destEmail=localStorage.getItem('destEmail');
 var destSMS=localStorage.getItem('destSMS');
 var latitude,longitude,precision,miseAjour;//variables globales pour ne pas avoir à les récupèrer à chaque fois dans la DOM
@@ -35,7 +36,8 @@ function success(pos) {
 	longitude=coord.longitude.toPrecision(6);
 	precision=coord.accuracy.toPrecision(6);
 	var d=new Date();
-	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+d.getSeconds();
+	//29 avr 2018 19h37:05
+	miseAjour=d.getDay+' '+mois[d.getMonth]+' '+d.getYear+' '+d.getHours()+"h"+d.getMinutes()+":"+(d.getSeconds()<10?'0':)+d.getSeconds();
 	document.getElementById("latitude").innerHTML=latitude;
 	document.getElementById("longitude").innerHTML=longitude;
 	document.getElementById("precision").innerHTML=precision;
