@@ -2,8 +2,10 @@ refreshGPS();
 var mois=['jan','fev','mar','avr','mai','jui','jul','aug','sep','oct','nov','dec'];
 var destEmail=localStorage.getItem('destEmail');
 var destSMS=localStorage.getItem('destSMS');
-var latitude,longitude,precision,miseAjour;//variables globales pour ne pas avoir à les récupèrer à chaque fois dans la DOM
-var sujet;
+var latitude
+var longitude
+var precision
+var miseAjour;//variables globales pour ne pas avoir à les récupèrer à chaque fois dans la DOM
 var message;
 var connection=(window.navigator.onLine?'online':'offline');
 console.log('connection:'+connection);
@@ -37,14 +39,15 @@ function success(pos) {
 	precision=coord.accuracy.toPrecision(6);
 	var d=new Date();
 	//29 avr 2018 19h37:05
-	miseAjour=d.getDay+' '+mois[d.getMonth]+' '+d.getYear+' '+d.getHours()+"h"+d.getMinutes()+":"+(d.getSeconds()<10?'0':)+d.getSeconds();
+	var secDouble=(d.getSeconds()<10?'0':'')+d.getSeconds();
+	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+secDouble+' '+d.getDay()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+	console.log('miseAjour:'+miseAjour);
 	document.getElementById("latitude").innerHTML=latitude;
 	document.getElementById("longitude").innerHTML=longitude;
 	document.getElementById("precision").innerHTML=precision;
 	document.getElementById("miseAjour").innerHTML=miseAjour;
 	console.log("Coordonnées mises à jour");
 	//mise à jour des variables globales
-	sujet='Geolocalisation '+d.getHours()+"h"+d.getMinutes();
 	message="Mes coordonnées mesurées par l'appli Web Progressive\r\nLatitude: "+latitude+'\r\nLongitude: '+longitude+'\r\nPrécision: '+precision+'\r\nDernière mise à jour: '+miseAjour;
 	console.log("Variables globales mises à jour");
 	//mise à jour du fichier téléchargeable
@@ -54,7 +57,7 @@ function success(pos) {
 	console.log('Blob '+blob+' créee');
 	var lien=document.getElementById("telecharger");
 	lien.setAttribute('href',url);
-	lien.setAttribute('download',sujet+".txt");
+	lien.setAttribute('download','Geolocalisation '+miseAjour+".txt");
 	console.log('Lien de téléchargement mis à jour');
 }
 
