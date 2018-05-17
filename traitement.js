@@ -82,7 +82,8 @@ function sms(){
 		localStorage.setItem('destSMS',destSMS);
 	}
 	var ecMessage=encodeURIComponent(message);
-	var sms='sms://'+destSMS+'?body='+ecmessage;//pas de sujet pour les SMS...//& pour iOS
+	//var sms='sms://'+destSMS+'?body='+ecmessage;//& pour iOS
+	var sms='sms://0649624189?body=message';//& pour iOS
 	window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
 }
